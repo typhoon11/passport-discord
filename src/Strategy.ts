@@ -87,7 +87,7 @@ export class Strategy<TUser = object, TInfo = object> extends OAuth2Strategy {
             done(null, {
                 provider: this.name,
                 id: json.id,
-                username: json.username,
+                username: `${json.username}#${json.discriminator}`,
                 displayName: `${json.username}#${json.discriminator}`,
                 created: snowflakeToDate(json.id),
                 emails: json.email ? [{ value: json.email, verified: json.verified }] : undefined,
