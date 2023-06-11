@@ -83,12 +83,18 @@ export class Strategy<TUser = object, TInfo = object> extends OAuth2Strategy {
             catch (parseError) {
                 return done(new InternalOAuthError("Failed to parse user profile", parseError));
             }
+            
+            let username = json.username;
+            
+            if (json.discriminator && json.discriminator.length == 4) {
+                username += "#" + json.discriminator;
+            }
 
             done(null, {
                 provider: this.name,
                 id: json.id,
-                username: `${json.username}#${json.discriminator}`,
-                displayName: `${json.username}#${json.discriminator}`,
+                username: username,
+                displayName: username,
                 created: snowflakeToDate(json.id),
                 emails: json.email ? [{ value: json.email, verified: json.verified }] : undefined,
                 photos: buildPhotos(json),
