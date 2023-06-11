@@ -1,6 +1,6 @@
 {
     "name": "@oauth-everything/passport-discord",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Discord OAuth 2.0 strategy for Passport.js",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
