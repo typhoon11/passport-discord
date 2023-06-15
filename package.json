@@ -1,6 +1,6 @@
 {
     "name": "@optidomains/passport-discord",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Discord OAuth 2.0 strategy for Passport.js with support for new discord username system",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
