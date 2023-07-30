@@ -58,8 +58,8 @@ export class Strategy<TUser = object, TInfo = object> extends OAuth2Strategy {
 
         super(
             {
-                authorizationURL: "https://discordapp.com/api/oauth2/authorize",
-                tokenURL: "https://discordapp.com/api/oauth2/token",
+                authorizationURL: "https://discord.com/api/v10/oauth2/authorize",
+                tokenURL: "https://discord.com/api/v10/oauth2/token",
                 scope: [Scope.IDENTIFY],
                 ...options
             } as OAuth2StrategyOptions,
@@ -71,7 +71,7 @@ export class Strategy<TUser = object, TInfo = object> extends OAuth2Strategy {
     public userProfile(accessToken: string, done: (err?: Error | null, profile?: Profile | null) => void): void {
 
         this._oauth2.useAuthorizationHeaderforGET(true);
-        this._oauth2.get("https://discordapp.com/api/users/@me", accessToken, (error, result) => {
+        this._oauth2.get("https://discord.com/api/v10/users/@me", accessToken, (error, result) => {
 
             if (error) return done(new InternalOAuthError("Failed to fetch user profile", error));
 
